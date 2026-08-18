@@ -1,0 +1,7 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nicepkg/vscode-tauri/main/schemas/capabilities.schema.json",
+  "identifier": "default",
+  "description": "Default capability set for the local Ctrip price tester",
+  "windows": ["main"],
+  "permissions": ["core:default"]
+}

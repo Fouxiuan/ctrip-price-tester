@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.cache/
+src-tauri/target/
+src-tauri/gen/
+src-tauri/resources/node/*
+!src-tauri/resources/node/.gitkeep
+release/
+.tauri/
+*.log
+.playwright-mcp/
