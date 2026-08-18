@@ -192,6 +192,24 @@ button.day-cell.has-data:hover:not(:disabled) { z-index: 1; background: #edf7ff;
 .idle-guide { display: flex; justify-content: center; align-items: center; gap: 14px; padding: 28px 0; color: #7d8998; font-size: 10px; }
 .idle-guide i { width: 34px; height: 1px; background: #cbd6e0; }
 
+.update-mask { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; padding: 20px; background: rgba(21, 34, 56, .45); backdrop-filter: blur(3px); }
+.update-dialog { width: min(400px, 100%); padding: 22px 24px 20px; background: white; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 24px 60px rgba(21, 34, 56, .28); }
+.update-dialog-head { display: grid; gap: 5px; margin-bottom: 14px; }
+.update-dialog-kicker { color: var(--blue); font: 750 9px/1.2 ui-monospace, Consolas, monospace; letter-spacing: .15em; }
+.update-dialog h2 { margin: 0; font-size: 18px; letter-spacing: -.3px; }
+.update-dialog-body { margin: 0; color: #45566c; font-size: 12px; line-height: 1.65; }
+.update-dialog-body strong { color: var(--ink); }
+.update-dialog-notes { display: block; max-height: 120px; overflow: auto; margin-top: 10px; padding: 10px 12px; color: var(--muted); background: var(--surface-soft); border: 1px solid var(--line); border-radius: 8px; font-size: 10px; white-space: pre-wrap; }
+.update-dialog-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; }
+.btn-plain { padding: 8px 16px; color: #5f6976; background: white; border: 1px solid var(--line); border-radius: 7px; font-size: 12px; font-weight: 700; }
+.btn-plain:hover { background: var(--surface-soft); }
+.btn-primary { padding: 8px 16px; color: white; background: var(--blue); border: 0; border-radius: 7px; font-size: 12px; font-weight: 750; }
+.btn-primary:hover { background: var(--blue-dark); }
+.update-progress { height: 8px; overflow: hidden; margin-top: 6px; background: #e9eef4; border-radius: 999px; }
+.update-progress i { display: block; height: 100%; background: linear-gradient(90deg, var(--blue), var(--cyan)); border-radius: 999px; transition: width .2s ease; }
+.update-dialog-hint { margin: 10px 0 0; color: var(--muted); font-size: 11px; }
+.update-dialog-hint.small { color: var(--faint); font-size: 9px; }
+
 @media (max-width: 1180px) {
   .search-stage { grid-template-columns: 1fr; gap: 25px; }
   .search-copy { max-width: 760px; }

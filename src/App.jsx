@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { invoke } from '@tauri-apps/api/core';
+import UpdaterDialog, { checkForUpdates } from './UpdaterDialog';
 
 const statusMeta = {
   success: { label: '正常返回', tone: 'success' },
@@ -177,6 +178,7 @@ export default function App() {
   const [roomLoading, setRoomLoading] = useState(false);
   const [error, setError] = useState('');
   const [environment, setEnvironment] = useState({ ready: false, checking: true, message: '正在检查 OpenCLI 与浏览器连接…' });
+  const [pendingUpdate, setPendingUpdate] = useState(null);
 
   const isTauri = typeof window !== 'undefined' && '__TAURI_INTERNALS__' in window;
 
@@ -204,7 +206,13 @@ export default function App() {
 
   useEffect(() => {
     checkEnvironment();
-    if (isTauri) refreshSavedHotels();
+    if (isTauri) {
+      refreshSavedHotels();
+      const timer = window.setTimeout(() => {
+        checkForUpdates(setPendingUpdate);
+      }, 3000);
+      return () => window.clearTimeout(timer);
+    }
   }, []);
 
   useEffect(() => {
@@ -442,6 +450,8 @@ export default function App() {
           <span>按日期核验房型</span>
         </footer>
       )}
+
+      {pendingUpdate && <UpdaterDialog update={pendingUpdate} onClose={() => setPendingUpdate(null)} />}
     </main>
   );
 }

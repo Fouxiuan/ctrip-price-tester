@@ -36,7 +36,19 @@
     "windows": {
       "nsis": {
         "languages": ["SimpChinese", "English"],
-        "displayLanguageSelector": false
+        "displayLanguageSelector": false,
+        "installMode": "both"
+      }
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDZEQzUzQzlBQUZDNTVBRTMKUldUaldzV3ZtanpGYmI0MGpySit2TzI1RkdxSTBFbXdJYmUwOEQyRTFuSXhaYUFVNlEyOVRrREMK",
+      "endpoints": [
+        "https://github.com/Fouxiuan/ctrip-price-tester/releases/latest/download/latest.json"
+      ],
+      "windows": {
+        "installMode": "passive"
       }
     }
   }

@@ -3,5 +3,5 @@
   "identifier": "default",
   "description": "Default capability set for the local Ctrip price tester",
   "windows": ["main"],
-  "permissions": ["core:default"]
+  "permissions": ["core:default", "updater:default", "opener:default", "process:default"]
 }
