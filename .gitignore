@@ -9,3 +9,4 @@ release/
 .tauri/
 *.log
 .playwright-mcp/
+latest.json
