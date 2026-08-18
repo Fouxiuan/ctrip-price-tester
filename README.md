@@ -71,7 +71,15 @@ pnpm build:tauri
 构建产物（`nsis/` 目录）：
 
 - `携程查价测试台_<版本>_x64-setup.exe` —— 安装版，支持自动更新
-- `携程查价测试台_<版本>_x64-portable.exe` —— 便携版，不支持自动更新（检测到更新时打开 GitHub Releases 页面）
+
+便携版（免安装，不支持自动更新）：
+
+```powershell
+$env:TAURI_SIGNING_PRIVATE_KEY_PATH = "$env:USERPROFILE\.tauri\ctrip-price-tester.key"
+pnpm build:portable
+```
+
+输出 `release/携程查价测试台_<版本>_x64-portable.exe`——为免安装可执行文件（资源已内嵌），拷到任意 Windows 11 机器直接运行。便携版检测到更新时不走自动更新，直接打开 GitHub Releases 页面。
 
 更新源指向 `https://github.com/Fouxiuan/ctrip-price-tester/releases/latest/download/latest.json`。
 
